@@ -11,7 +11,17 @@
 			<div class="row">
 				<div class="col">
 					@foreach ($recado as $recado)
-					{{$recado->mensagem}}
+					
+					@if($dia >= $recado->data_final)
+
+						{{$recado->mensagem}}
+					
+					@else
+
+						Ops... A cápsula do tempo ainda não chegou aqui! Aguarde até o dia {{$recado->data_final}}!
+
+					@endif
+
 						
 					@endforeach
 				</div>

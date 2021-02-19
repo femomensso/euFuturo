@@ -65,7 +65,9 @@ class PrincipalController extends Controller
             $request->validate($regras, $feedback);
 
             $recado = Recado::where('email', 'like', $request->input('email'))->where('codigo', 'like', $request->input('codigo'))->get();
-            return view('recado', ['recado' => $recado]);
+            $dia = date('Y-m-d');
+
+            return view('recado', ['recado' => $recado, 'dia' => $dia]);
         };
 
         return view('revelar');
